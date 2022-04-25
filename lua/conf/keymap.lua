@@ -1,13 +1,12 @@
-local nr_options = { noremap = true, silent = true }
-
+local options = { noremap = true, silent = true }
 local terminal_options = { silent = true }
 
-local nr_map = vim.api.nvim_set_nr_map
+local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
--- nr_map("", "<Space>", "<Nop>", nr_options)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+keymap("", "<Alt>", "<Nop>", options)
+vim.g.mapleader = "Alt"
+vim.g.maplocalleader = "Alt"
 
 
 -- -- Modes
@@ -18,16 +17,55 @@ local nr_map = vim.api.nvim_set_nr_map
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
--- Better window navigation
-nr_map("n", "<C-h>", "<C-w>Left", nr_options)
-nr_map("n", "<C-j>", "<C-w>Up", nr_options)
-nr_map("n", "<C-k>", "<C-w>Down", nr_options)
-nr_map("n", "<C-l>", "<C-w>Right", nr_options)
+-- Reset important keymaps
 
--- Resize with arrows
-nr_map("n", "<S-Tab-Up>", ":resize 2<CR>", nr_options)
-nr_map("n", "<S-Tab-Down>", ":resize -2<CR>", nr_options)
-nr_map("n", "<S-Tab-Right>", ":vertical resize -2<CR>", nr_options)
-nr_map("n", "<C-Tab-Left>", ":vertical resize +2<CR>", nr_options)
+
+-- File Navigation
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", options)
+keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", options)
+keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", options)
+
+-- Normal --
+-- Navigate between windows (splitted)
+keymap("n", "<C-h>", "<C-w>Left", options)
+keymap("n", "<C-j>", "<C-w>Up", options)
+keymap("n", "<C-k>", "<C-w>Down", options)
+keymap("n", "<C-l>", "<C-w>Right", options)
+
+-- Resize splited part with arrow
+keymap("n", "<C-j>", ":resize +2<CR>", options)
+keymap("n", "<C-k>", ":resize -2<CR>", options)
+keymap("n", "<C-h>", ":vertical resize +2<CR>", options)
+keymap("n", "<C-l>", ":vertical resize -2<CR>", options)
+
+-- Navigate between buffers
+keymap("n", "<S-l>", ":bnext<CR>", options)
+keymap("n", "<S-h>", ":bprevious<CR>", options)
+
+-- Escape in insert mode
+keymap("i", "jk", "<ESC>", options)
+
+-- Visual --
+-- Stay in indent mode (insert tab)
+keymap("v", "<", "<gv", options)
+keymap("v", ">", ">gv", options)
+
+-- Move visual selected block up and down
+keymap("v", "<S-Tab-j>", ":m .+1<CR>==", options)
+keymap("v", "<S-Tab-k>", ":m .-2<CR>==", options)
+keymap("v", "p", '"_dP', options)
+
+-- Visual Block --
+-- Move text up and down
+keymap("x", "J", ":move '>+1<CR>gv-gv", options)
+keymap("x", "K", ":move '<-2<CR>gv-gv", options)
+keymap("x", "<S-Tab-j>", ":move '>+1<CR>gv-gv", options)
+keymap("x", "<S-Tab-k>", ":move '<-2<CR>gv-gv", options)
+
+-- Terminal --
+-- Better terminal navigation
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", terminal_options)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", terminal_options)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", terminal_options)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
 
