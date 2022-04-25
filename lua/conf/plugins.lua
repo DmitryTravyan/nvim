@@ -69,6 +69,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
     -- Rust
+    use "rust-lang/rust.vim" -- Rust language
     use "simrat39/rust-tools.nvim" -- Rust tools
 
     -- File navigation
@@ -82,26 +83,13 @@ return packer.startup(function(use)
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"
 
---" Setup lsp comfiguration
---Plug 'rust-lang/rust.vim'
---
---" Optional dependencies
---Plug 'nvim-telescope/telescope.nvim'
---
---" Debugging (needs plenary from above as well)
---Plug 'mfussenegger/nvim-dap'
---
---" Git plugin
---Plug 'tpope/vim-fugitive'
---
---" Add toml support
---Plug 'cespare/vim-toml'
---
---" Better tabs
---Plug 'kyazdani42/nvim-web-devicons'
---Plug 'romgrk/barbar.nvim'
---
---call plug#end()
+    -- use 'nvim-telescope/telescope.nvim'
+    -- use 'mfussenegger/nvim-dap'
+    -- use 'tpope/vim-fugitive'
+    -- use 'cespare/vim-toml'
+    -- use 'kyazdani42/nvim-web-devicons'
+    -- use 'romgrk/barbar.nvim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["rust.vim"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/rust.vim",
+    url = "https://github.com/rust-lang/rust.vim"
+  },
   ["vim-airline"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-airline",

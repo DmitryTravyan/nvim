@@ -14,14 +14,18 @@ configs.setup {
         "json",
         "hcl"
     },
-    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-    ignore_install = { "" }, -- List of parsers to ignore installing
+    -- install languages synchronously (only applied to `ensure_installed`)
+    sync_install = true,
+    -- List of parsers to ignore installing
+    -- ignore_install = "all",
     autopairs = {
         enable = true,
     },
     highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = { "rust" }, -- list of language that will be disabled
+        -- false will disable the whole extension
+        enable = true,
+        -- list of language that will be disabled
+        disable = { "c", "rust" },
         additional_vim_regex_highlighting = true,
     },
     indent = { enable = true, disable = { "yaml" } },
