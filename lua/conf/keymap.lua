@@ -48,16 +48,16 @@ keymap("v", "<", "<gv", options)
 keymap("v", ">", ">gv", options)
 
 -- Move visual selected block up and down
-keymap("v", "<S-Tab-j>", ":m .+1<CR>==", options)
-keymap("v", "<S-Tab-k>", ":m .-2<CR>==", options)
+--keymap("v", "<S-Tab-j>", ":m .+1<CR>==", options)
+--keymap("v", "<S-Tab-k>", ":m .-2<CR>==", options)
 keymap("v", "p", '"_dP', options)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", options)
 keymap("x", "K", ":move '<-2<CR>gv-gv", options)
-keymap("x", "<S-Tab-j>", ":move '>+1<CR>gv-gv", options)
-keymap("x", "<S-Tab-k>", ":move '<-2<CR>gv-gv", options)
+--keymap("x", "<S-Tab-j>", ":move '>+1<CR>gv-gv", options)
+--keymap("x", "<S-Tab-k>", ":move '<-2<CR>gv-gv", options)
 
 -- Terminal --
 -- Better terminal navigation

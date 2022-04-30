@@ -33,8 +33,8 @@ lsp_installer.on_server_ready(function(server)
             server = vim.tbl_deep_extend(
                 "force",
                 server:get_default_options(),
-                rust_analyzer_opts,
-                opts
+                opts,
+                rust_analyzer_opts
             ),
         }
         server:attach_buffers()

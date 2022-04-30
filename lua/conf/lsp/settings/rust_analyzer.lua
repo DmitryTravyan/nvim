@@ -28,6 +28,11 @@ return {
             procMacro = {
                 enable = true
             },
+            completion = {
+                postfix = {
+                    enable = false
+                },
+            },
         }
     },
 }
