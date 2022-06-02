@@ -72,6 +72,9 @@ return packer.startup(function(use)
     use "rust-lang/rust.vim" -- Rust language
     use "simrat39/rust-tools.nvim" -- Rust tools
 
+    -- Golang
+    use "ray-x/go.nvim" -- Go support
+
     -- File navigation
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"

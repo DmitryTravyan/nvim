@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
   ["nvim-base16"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/nvim-base16",
