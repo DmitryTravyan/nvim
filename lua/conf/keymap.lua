@@ -65,7 +65,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", terminal_options)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", terminal_options)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", terminal_options)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
-
--- Rust
-keymap("n", "<S-A-l>", ":RustFmt<CR>", options)
-

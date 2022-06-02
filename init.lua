@@ -6,4 +6,5 @@ require "conf.completion"
 require "conf.lsp"
 require "conf.nvimtree"
 require "conf.treesitter"
+require "conf.golang"
 
