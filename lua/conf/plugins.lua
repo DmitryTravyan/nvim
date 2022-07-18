@@ -79,12 +79,17 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
 
-    -- Treesitter
+    -- Treesitter and code analysus
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"
+    use {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
     -- use 'nvim-telescope/telescope.nvim'
     -- use 'mfussenegger/nvim-dap'

@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-local keymap = vim.api.nvim_set_keymap
-
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
@@ -24,16 +22,12 @@ lsp_installer.on_server_ready(function(server)
 	end
 
     if server.name == "gopls" then
-        -- Set formatting shortcut keymap
-        keymap("n", "<S-A-l>", ":GoFmt<CR>", { noremap = true, silent = true })
         -- Golang configuration for lsp
         local go_opts = require("conf.lsp.settings.gopls")
         opts = vim.tbl_deep_extend("force", go_opts, opts)
     end
 
 	if server.name == "rust_analyzer" then
-        -- Set formatting shortcut keymap
-        keymap("n", "<S-A-l>", ":RustFmt<CR>", { noremap = true, silent = true })
 		-- Rust configuration for lsp
         local rust_analyzer_opts = require("conf.lsp.settings.rust_analyzer")
         -- Initialize the LSP via rust-tools instead
