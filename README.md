@@ -22,3 +22,15 @@ Install tree-sitter
 ```shell
 cargo install tree-sitter-cli --git https://github.com/tree-sitter/tree-sitter.git --tag v0.18.3
 ```
+
+LUA:
+
+Install luarocks:
+```shell
+brew install luarocks
+```
+
+Install lua formatting packet:
+```shell
+cargo install stylua
+```

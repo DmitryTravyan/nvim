@@ -68,6 +68,8 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", terminal_options)
 
 vim.cmd("autocmd FileType go nnoremap <S-A-l> :GoFmt<CR>")
 vim.cmd("autocmd FileType rust nnoremap <S-A-l> :RustFmt<CR>")
+vim.cmd("autocmd FileType lua nnoremap <S-A-l> :Format<CR>")
+
 -- Set formatting shortcut keymap
 -- keymap("n", "<S-A-l>", ":RustFmt<CR>", { noremap = true, silent = true })
 

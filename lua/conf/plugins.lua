@@ -66,7 +66,9 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "williamboman/mason.nvim" -- new laguage server installer
+    use "williamboman/mason-lspconfig.nvim" -- configuration plugin for mason
+    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- ???
 
     -- Rust
     use "rust-lang/rust.vim" -- Rust language
@@ -75,11 +77,18 @@ return packer.startup(function(use)
     -- Golang
     use "ray-x/go.nvim" -- Go support
 
+    -- Toml
+    use "cespare/vim-toml"
+
+    -- Lua
+    use "folke/lua-dev.nvim"
+    use "mhartington/formatter.nvim"
+
     -- File navigation
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
 
-    -- Treesitter and code analysus
+    -- Treesitter and code analysis
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -91,13 +100,14 @@ return packer.startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    -- use 'nvim-telescope/telescope.nvim'
-    -- use 'mfussenegger/nvim-dap'
-    -- use 'tpope/vim-fugitive'
-    -- use 'cespare/vim-toml'
-    -- use 'kyazdani42/nvim-web-devicons'
-    -- use 'romgrk/barbar.nvim'
+    -- Null ls plugin
+    use "jose-elias-alvarez/null-ls.nvim"
+    
+    -- Neovim Debug Adapter Protocol (DAP) plugin
+    use "mfussenegger/nvim-dap"
 
+    -- Ansyncronius linter
+    use "mfussenegger/nvim-lint"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

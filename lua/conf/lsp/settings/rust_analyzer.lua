@@ -2,7 +2,7 @@ return {
     -- rust-tools options
     tools = {
         autoSetHints = true,
-        hover_with_actions = true,
+        -- hover_with_actions = true,
 
         inlay_hints = {
             only_current_line = false,
