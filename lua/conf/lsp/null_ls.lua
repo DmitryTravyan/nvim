@@ -20,8 +20,6 @@ null_ls.setup {
     formatting.black.with { extra_args = { "--fast" } },
     formatting.stylua,
     formatting.shfmt,
-    formatting.google_java_format,
-    -- diagnostics.flake8,
     diagnostics.shellcheck,
   },
 }
@@ -31,7 +29,7 @@ local unwrap = {
   filetypes = { "rust" },
   generator = {
     fn = function(params)
-      local diagnostics = {}
+      diagnostics = {}
       -- sources have access to a params object
       -- containing info about the current file and editor state
       for i, line in ipairs(params.content) do
