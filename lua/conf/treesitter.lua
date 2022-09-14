@@ -15,6 +15,7 @@ configs.setup {
         "hcl",
         "go",
         "gomod",
+        "sql"
     },
     -- install languages synchronously (only applied to `ensure_installed`)
     sync_install = true,

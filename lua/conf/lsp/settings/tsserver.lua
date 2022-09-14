@@ -13,4 +13,7 @@ return {
         },
       },
     },
+    highlight = {
+        enable = true
+    },
 }
