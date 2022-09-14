@@ -4,6 +4,11 @@ if not status_ok then
     return
 end
 
+status_ok, _ = pcall(require, "conf.lsp.mason_installer")
+if not status_ok then
+    print("Error then calling 'mason-tool-installer' plugin")
+end
+
 -- list of important lsp servers
 local servers = {
     -- LSP servers
@@ -15,9 +20,10 @@ local servers = {
     "tsserver",
     "yamlls",
     "golangci_lint_ls",
+    "solargraph",
+    "sorbet",
 }
 
--- manual installed
 -- luaformatter
 -- luacheck
 -- go-dap

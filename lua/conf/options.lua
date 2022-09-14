@@ -1,6 +1,6 @@
 -- :help options
 vim.opt.backup = false                          -- creates a backup file
--- vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
@@ -36,7 +36,6 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.errorbells = false
 vim.opt.showcmd = true
-vim.opt.shell = "zsh"
 
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap = "<,>,[,],h,l,b,s"
