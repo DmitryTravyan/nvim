@@ -4,29 +4,10 @@ if not status_ok then
     return
 end
 
-status_ok, _ = pcall(require, "conf.lsp.mason_installer")
+status_ok, mason_installer = pcall(require, "conf.lsp.mason_installer")
 if not status_ok then
     print("Error then calling 'mason-tool-installer' plugin")
 end
-
--- list of important lsp servers
-local servers = {
-    -- LSP servers
-    "sumneko_lua",
-    "rust_analyzer",
-    "gopls",
-    "jsonls",
-    "terraformls",
-    "tsserver",
-    "yamlls",
-    "golangci_lint_ls",
-    "solargraph",
-    "sorbet",
-}
-
--- luaformatter
--- luacheck
--- go-dap
 
 local mason, mason_lspconfig
 status_ok, mason = pcall(require, "mason")
@@ -56,13 +37,13 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-    ensure_installed = servers,
+    ensure_installed = {},
     automatic_installation = false,
 })
 
 local opts = {}
 
-for _, server in pairs(servers) do
+for _, server in pairs(SERVERS) do
     -- Options for lsp servers
     opts = {
         on_attach = require("conf.lsp.handlers").on_attach,
@@ -144,6 +125,11 @@ for _, server in pairs(servers) do
     if server == "gopls" then
         local gopls_opts = require "conf.lsp.settings.gopls"
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
+
+    if server == "terraformls" then
+        local terraformls_opts = require("conf.lsp.settings.terraformls")
+        opts = vim.tbl_deep_extend("force", terraformls_opts, opts)
     end
 
     lspconfig[server].setup(opts)

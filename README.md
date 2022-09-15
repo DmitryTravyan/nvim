@@ -40,16 +40,11 @@ cargo intall ripgrep fd-find tree-sitter-cli
 Install ruby and neovim gems
 ```shell
 sudo dnf install -y ruby ruby-devel
-cargo intall ripgrep fd-find tree-sitter-cli
-```
-
-Installing tree-sitter for syntax highlighting
-```shell
-npm install -g neovim
+sudo gen install neovim
 ```
 
 Add nerd-fonts to the system
-```
+```shell
 git clone https://github.com/ryanoasis/nerd-fonts ; cd nerd-fonts ; ./setup.sh
 ```
 
