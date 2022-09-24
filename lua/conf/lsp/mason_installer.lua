@@ -1,17 +1,3 @@
-SERVERS = {
-    -- Lsp servers
-    "sumneko_lua",
-    "rust_analyzer",
-    "gopls",
-    "jsonls",
-    "terraformls",
-    "tsserver",
-    "yamlls",
-    "golangci_lint_ls",
-    "solargraph",
-    "sorbet",
-}
-
 local tools = {
     -- Lua tools
     "luacheck",
@@ -39,7 +25,7 @@ local tools = {
 }
 
 require('mason-tool-installer').setup {
-    ensure_installed = vim.tbl_deep_extend("force", SERVERS, tools),
+    ensure_installed = tools,
     auto_update = false,
     run_on_start = true,
     start_delay = 3000, -- 3 second delay

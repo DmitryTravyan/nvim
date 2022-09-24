@@ -23,6 +23,20 @@ if not status_ok then
     return
 end
 
+SERVERS = {
+    -- Lsp servers
+    "sumneko_lua",
+    "rust_analyzer",
+    "gopls",
+    "jsonls",
+    "terraformls",
+    "tsserver",
+    "yamlls",
+    "golangci_lint_ls",
+    "solargraph",
+    "sorbet",
+}
+
 mason.setup({
     ui = {
         border = "rounded",
@@ -37,7 +51,7 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-    ensure_installed = {},
+    ensure_installed = SERVERS,
     automatic_installation = false,
 })
 
