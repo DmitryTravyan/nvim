@@ -44,7 +44,6 @@ return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
     -- visual stuff
     -- use "chriskempson/base16-vim"
@@ -95,11 +94,8 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"
-    use {
-        "nvim-telescope/telescope.nvim",
-        tag = '0.1.0',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+    use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
+    use "nvim-telescope/telescope.nvim"
 
     -- Null ls plugin
     use "jose-elias-alvarez/null-ls.nvim"

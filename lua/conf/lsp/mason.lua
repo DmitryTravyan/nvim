@@ -4,7 +4,7 @@ if not status_ok then
     return
 end
 
-status_ok, mason_installer = pcall(require, "conf.lsp.mason_installer")
+local status_ok, mason_installer = pcall(require, "conf.lsp.mason_installer")
 if not status_ok then
     print("Error then calling 'mason-tool-installer' plugin")
 end
@@ -17,7 +17,7 @@ if not status_ok then
 end
 
 
-status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
     print("Error then calling require 'mason-lspconfig' plugin")
     return
@@ -64,7 +64,7 @@ for _, server in pairs(SERVERS) do
         capabilities = require("conf.lsp.handlers").capabilities,
     }
 
-    server = vim.split(server, "@")[1]
+    server = vim.split(server, "@", { plain = true })[1]
 
     if server == "jsonls" then
         local jsonls_opts = require "conf.lsp.settings.jsonls"
@@ -79,21 +79,24 @@ for _, server in pairs(SERVERS) do
     if server == "sumneko_lua" then
         local l_status_ok, lua_dev = pcall(require, "lua-dev")
         if not l_status_ok then
+            print("error then calling require plugin lua-dev")
             return
         end
-        -- local sumneko_opts = require "user.lsp.settings.sumneko_lua"
-        -- opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-        -- opts = vim.tbl_deep_extend("force", require("lua-dev").setup(), opts)
-        local luadev = lua_dev.setup {
-            --   -- add any options here, or leave empty to use the default settings
-            -- lspconfig = opts,
-            lspconfig = {
-                on_attach = opts.on_attach,
-                capabilities = opts.capabilities,
-                --   -- settings = opts.settings,
-            },
-        }
-        lspconfig.sumneko_lua.setup(luadev)
+        local sumneko_status_ok, sumneko_opts = pcall(require, "conf.lsp.settings.sumneko_lua")
+        if not sumneko_status_ok then
+            print("error then calling require options for plugin sumneko_lua")
+            return
+        end
+        opts = vim.tbl_deep_extend("force",
+            opts,
+            lua_dev.setup({
+                lspconfig = {
+                    on_attach = opts.on_attach,
+                    capabilities = opts.capabilities,
+                },
+            }), sumneko_opts)
+
+        lspconfig.sumneko_lua.setup(opts)
         goto continue
     end
 
