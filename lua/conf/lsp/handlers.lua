@@ -12,40 +12,43 @@ M.setup = function()
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
 
-    local config = {
-        -- disable virtual text
-        virtual_text = false,
-        -- show signs
-        signs = {
-            active = signs,
-        },
+    vim.diagnostic.config({
+        virtual_text = true,
+        signs = { active = signs },
         update_in_insert = true,
-        underline = true,
-        severity_sort = false,
+        underline = false,
+        severity_sort = true,
         float = {
             focusable = false,
             style = "minimal",
             border = "rounded",
             source = "always",
         },
-    }
-
-    vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "rounded",
+        virtual_lines = false,
     })
 
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "rounded",
-    })
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover,
+        {
+            border = "rounded",
+        }
+    )
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+        vim.lsp.handlers.signature_help,
+        {
+            border = "rounded",
+        }
+    )
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        signs = true,
-        update_in_insert = true,
-    }
+        vim.lsp.diagnostic.on_publish_diagnostics,
+        {
+            virtual_text = true,
+            signs = { active = signs },
+            update_in_insert = true,
+            virtual_lines = false
+        }
     )
 end
 
