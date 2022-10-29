@@ -57,3 +57,21 @@ go install mvdan.cc/gofumpt@latest
 go install github.com/segmentio/golines@latest
 go install golang.org/x/tools/cmd/goimports@latest
 ```
+
+# MacOs
+
+## Terminal native theme
+
+In some cases, you may want to use the terminal's native colorscheme. With 99% 
+of the themes available for neovim, nothing will work, as it will use the 
+24-bit color highlighting API (truecolor). Especially for such cases, I wrote 
+a new color scheme that uses absolutely 4 bits of ANSI for all highlights.
+
+To enable this pass theme name to setup function in colorscheme.lua file:
+```lua
+require(lua.termnative).setup("onedark")
+```
+
+Available themes:
+- onedark
+- gruvbox-dark-hard

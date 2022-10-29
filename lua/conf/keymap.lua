@@ -32,8 +32,8 @@ keymap("n", "<C-l>", "<C-w>Right", options)
 -- Resize splited part with arrow
 keymap("n", "<C-j>", ":resize +2<CR>", options)
 keymap("n", "<C-k>", ":resize -2<CR>", options)
-keymap("n", "<C-h>", ":vertical resize +2<CR>", options)
-keymap("n", "<C-l>", ":vertical resize -2<CR>", options)
+keymap("n", "<C-h>", ":vertical resize +3<CR>", options)
+keymap("n", "<C-l>", ":vertical resize -3<CR>", options)
 
 
 -- Escape in insert mode

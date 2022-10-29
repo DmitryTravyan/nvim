@@ -1,2 +1,3 @@
--- require("conf.termnative").setup("gruvbox-dark-hard")
-require("conf.termnative").setup("onedark")
+-- "gruvbox-dark-hard"
+-- "onedark"
+require("conf.termnative").setup("gruvbox-dark-hard")
