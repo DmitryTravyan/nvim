@@ -30,6 +30,7 @@ configs.setup {
         enable = true,
         -- list of language that will be disabled
         additional_vim_regex_highlighting = true,
+        disable = { "rust", "go", "lua" },
     },
     indent = { enable = true, disable = { "yaml" } },
     context_commentstring = {

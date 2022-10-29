@@ -23,10 +23,26 @@ if not status_ok then
     return
 end
 
-SERVERS = {
+AUTO_INSTALL_SERVERS = {
+    -- Lsp servers
+    "sumneko_lua",
+    -- "rust_analyzer",
+    -- "rust_analyzer@nightly",
+    "gopls",
+    "jsonls",
+    "terraformls",
+    "tsserver",
+    "yamlls",
+    "golangci_lint_ls",
+    "solargraph",
+    "sorbet",
+}
+
+START_SERVERS = {
     -- Lsp servers
     "sumneko_lua",
     "rust_analyzer",
+    -- "rust_analyzer@nightly",
     "gopls",
     "jsonls",
     "terraformls",
@@ -51,13 +67,13 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-    ensure_installed = SERVERS,
+    ensure_installed = AUTO_INSTALL_SERVERS,
     automatic_installation = false,
 })
 
 local opts = {}
 
-for _, server in pairs(SERVERS) do
+for _, server in pairs(START_SERVERS) do
     -- Options for lsp servers
     opts = {
         on_attach = require("conf.lsp.handlers").on_attach,
@@ -77,9 +93,9 @@ for _, server in pairs(SERVERS) do
     end
 
     if server == "sumneko_lua" then
-        local l_status_ok, lua_dev = pcall(require, "lua-dev")
-        if not l_status_ok then
-            print("error then calling require plugin lua-dev")
+        local n_status_ok, neodev = pcall(require, "neodev")
+        if not n_status_ok then
+            print("error then calling require plugin folke/neodev.nvim")
             return
         end
         local sumneko_status_ok, sumneko_opts = pcall(require, "conf.lsp.settings.sumneko_lua")
@@ -89,12 +105,8 @@ for _, server in pairs(SERVERS) do
         end
         opts = vim.tbl_deep_extend("force",
             opts,
-            lua_dev.setup({
-                lspconfig = {
-                    on_attach = opts.on_attach,
-                    capabilities = opts.capabilities,
-                },
-            }), sumneko_opts)
+            sumneko_opts
+        )
 
         lspconfig.sumneko_lua.setup(opts)
         goto continue
@@ -118,6 +130,7 @@ for _, server in pairs(SERVERS) do
             print("Error then calling require 'rust-tools' plugin")
             return
         end
+
         --     {
         --     "server" = {
         --     on_attach = function(_, bufnr)

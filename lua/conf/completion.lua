@@ -67,7 +67,6 @@ cmp.setup({
                 vsnip = "[VSNIP]",
                 buffer = "[Buffer]",
                 path = "[Path]",
-                zsh = "[ZSH]"
             })[entry.source.name]
             return vim_item
         end,
@@ -77,7 +76,6 @@ cmp.setup({
         { name = "vsinp" },
         { name = "buffer" },
         { name = "path" },
-        { name = "zsh" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

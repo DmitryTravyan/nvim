@@ -99,11 +99,6 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["cmp-zsh"] = {
-    loaded = true,
-    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/cmp-zsh",
-    url = "https://github.com/tamago324/cmp-zsh"
-  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -129,11 +124,6 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/lsp_lines.nvim",
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
   },
-  ["lua-dev.nvim"] = {
-    loaded = true,
-    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
-    url = "https://github.com/folke/lua-dev.nvim"
-  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -149,6 +139,11 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -157,7 +152,7 @@ _G.packer_plugins = {
   ["nvim-base16"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/rrethy/nvim-base16"
+    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -204,6 +199,11 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.vim"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    url = "https://github.com/joshdick/onedark.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -243,6 +243,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
+  },
+  ["vim-dim"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-dim",
+    url = "https://github.com/jeffkreeftmeijer/vim-dim"
+  },
+  ["vim-noctu"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-noctu",
+    url = "https://github.com/noahfrederick/vim-noctu"
   },
   ["vim-toml"] = {
     loaded = true,

@@ -12,6 +12,7 @@ return {
             right_align = false,
 
             highlight = "Comment",
+            cache = true,
         },
         hover_actions = {
             auto_focus = false,
@@ -23,12 +24,33 @@ return {
     server = {
         on_attach = require("conf.lsp.handlers").on_attach,
         capabilities = require("conf.lsp.handlers").capabilities,
+        -- on_init = function(client)
+        --     local toolchains = ""
+        --     local path = client.workspace_folders[1].name
+        --     print(path)
 
+        --     if path == '/path/to/project1' then
+        --         client.config.settings["rust-analyzer"].checkOnSave.overrideCommand = { "cargo", "check" }
+        --     elseif path == '/path/to/rust' then
+        --         client.config.settings["rust-analyzer"].checkOnSave.overrideCommand = { "python3", "x.py", "check",
+        --             "--stage", "1" }
+        --     end
+
+        --     client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+        --     return true
+        -- end,
+
+        cmd = {
+            "rustup",
+            "run",
+            "stable",
+            "rust-analyzer",
+        },
         settings = {
             ["rust-analyzer"] = {
-                lens = {
-                    enable = true,
-                },
+                -- lens = {
+                --     enable = true,
+                -- },
                 -- enable clippy diagnostics on save
                 checkOnSave = {
                     command = "clippy"
@@ -40,6 +62,9 @@ return {
                     postfix = {
                         enable = false
                     },
+                },
+                diagnostics = {
+                    experimental = true,
                 },
             },
 

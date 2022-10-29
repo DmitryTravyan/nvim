@@ -47,7 +47,11 @@ return packer.startup(function(use)
 
     -- visual stuff
     -- use "chriskempson/base16-vim"
-    use "rrethy/nvim-base16"
+    use "joshdick/onedark.vim"
+    use "RRethy/nvim-base16"
+    use "noahfrederick/vim-noctu"
+    use "jeffkreeftmeijer/vim-dim"
+    -- use "DmitryTravyan/onedark.nvim"
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
 
@@ -57,7 +61,6 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path" -- path completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "hrsh7th/cmp-nvim-lsp" -- lsp completion
-    use "tamago324/cmp-zsh" -- zsh completion
 
     -- snippets
     use "hrsh7th/cmp-vsnip"
@@ -82,7 +85,7 @@ return packer.startup(function(use)
     use "cespare/vim-toml"
 
     -- Lua
-    use "folke/lua-dev.nvim"
+    use "folke/neodev.nvim"
     use "mhartington/formatter.nvim"
 
     -- File navigation
