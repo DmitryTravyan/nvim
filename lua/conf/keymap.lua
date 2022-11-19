@@ -24,10 +24,13 @@ keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", options)
 
 -- Normal --
 -- Navigate between windows (splitted)
-keymap("n", "<C-h>", "<C-w>Left", options)
-keymap("n", "<C-j>", "<C-w>Up", options)
-keymap("n", "<C-k>", "<C-w>Down", options)
-keymap("n", "<C-l>", "<C-w>Right", options)
+keymap("n", "<C-h>", "<C-w>h", options)
+keymap("n", "<C-j>", "<C-w>k", options)
+keymap("n", "<C-k>", "<C-w>j", options)
+keymap("n", "<C-l>", "<C-w>l", options)
+
+-- Split window verticaly
+keymap("n", "<A-S-s>", ":vsplit<CR>", options)
 
 -- Resize splited part with arrow
 keymap("n", "<C-j>", ":resize +2<CR>", options)
@@ -45,8 +48,8 @@ keymap("v", "<", "<gv", options)
 keymap("v", ">", ">gv", options)
 
 -- Move visual selected block up and down
---keymap("v", "<S-Tab-j>", ":m .+1<CR>==", options)
---keymap("v", "<S-Tab-k>", ":m .-2<CR>==", options)
+-- keymap("i", "<A-S-k>", ":m '<-2<CR>gv=gv", options)
+-- keymap("i", "<A-S-j>", ":m '<+1<CR>gv=gv", options)
 keymap("v", "p", '"_dP', options)
 
 -- Visual Block --

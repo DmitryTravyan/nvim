@@ -36,6 +36,7 @@ AUTO_INSTALL_SERVERS = {
     "golangci_lint_ls",
     "solargraph",
     "sorbet",
+    "clangd",
 }
 
 START_SERVERS = {

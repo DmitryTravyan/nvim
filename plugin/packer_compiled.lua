@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["deoplete-clang"] = {
+    loaded = true,
+    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/deoplete-clang",
+    url = "https://github.com/deoplete-plugins/deoplete-clang"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -148,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
-  },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -243,16 +243,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
-  },
-  ["vim-dim"] = {
-    loaded = true,
-    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-dim",
-    url = "https://github.com/jeffkreeftmeijer/vim-dim"
-  },
-  ["vim-noctu"] = {
-    loaded = true,
-    path = "/Users/dmitrijtravan/.local/share/nvim/site/pack/packer/start/vim-noctu",
-    url = "https://github.com/noahfrederick/vim-noctu"
   },
   ["vim-toml"] = {
     loaded = true,

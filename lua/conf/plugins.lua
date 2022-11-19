@@ -48,9 +48,6 @@ return packer.startup(function(use)
     -- visual stuff
     -- use "chriskempson/base16-vim"
     use "joshdick/onedark.vim"
-    use "RRethy/nvim-base16"
-    use "noahfrederick/vim-noctu"
-    use "jeffkreeftmeijer/vim-dim"
     -- use "DmitryTravyan/onedark.nvim"
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
@@ -87,6 +84,9 @@ return packer.startup(function(use)
     -- Lua
     use "folke/neodev.nvim"
     use "mhartington/formatter.nvim"
+
+    -- Clang
+    use "deoplete-plugins/deoplete-clang"
 
     -- File navigation
     use "kyazdani42/nvim-web-devicons"

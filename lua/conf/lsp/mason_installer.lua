@@ -22,6 +22,8 @@ local tools = {
     "black",
     "shfmt",
     "shellcheck",
+    -- Clang
+    "clang-format",
 }
 
 require('mason-tool-installer').setup {
