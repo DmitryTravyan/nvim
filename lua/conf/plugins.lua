@@ -89,8 +89,8 @@ return packer.startup(function(use)
     use "deoplete-plugins/deoplete-clang"
 
     -- File navigation
-    use "kyazdani42/nvim-web-devicons"
-    use "kyazdani42/nvim-tree.lua"
+    use "nvim-tree/nvim-web-devicons"
+    use "nvim-tree/nvim-tree.lua"
 
     -- Treesitter and code analysis
     use {
