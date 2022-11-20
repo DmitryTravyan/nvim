@@ -18,7 +18,7 @@ vim.g.maplocalleader = "Alt"
 --   command_mode = "c",
 
 -- File Navigation
-keymap("n", "<C-n>", ":NvimTreeToggle<CR>", options)
+keymap("n", "<C-n>", ":NvimTreeFocus<CR>", options)
 keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", options)
 keymap("n", "<leader>n", ":NvimTreeFindFile<CR>", options)
 

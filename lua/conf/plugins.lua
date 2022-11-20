@@ -46,11 +46,7 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
 
     -- visual stuff
-    -- use "chriskempson/base16-vim"
-    use "joshdick/onedark.vim"
-    -- use "DmitryTravyan/onedark.nvim"
-    use "vim-airline/vim-airline"
-    use "vim-airline/vim-airline-themes"
+    use "nvim-lualine/lualine.nvim"
 
     -- completion plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
