@@ -1,7 +1,10 @@
 return {
-  yaml = {
-    schemaStore = {
-      enable = true
+    yaml = {
+        schemaStore = {
+            enable = true
+        },
+        format = {
+            enable = true
+        },
     }
-  }
 }
