@@ -1,24 +1,20 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
+require("conf.lsp.mason_installer")
+
+local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_ok then
     print("Error then calling require 'lspconfig' plugin")
     return
 end
 
-local status_ok, mason_installer = pcall(require, "conf.lsp.mason_installer")
-if not status_ok then
-    print("Error then calling 'mason-tool-installer' plugin")
-end
-
-local mason, mason_lspconfig
-status_ok, mason = pcall(require, "mason")
-if not status_ok then
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
     print("Error then calling require 'mason' plugin")
     return
 end
 
 
-local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not status_ok then
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_ok then
     print("Error then calling require 'mason-lspconfig' plugin")
     return
 end
@@ -26,8 +22,7 @@ end
 AUTO_INSTALL_SERVERS = {
     -- Lsp servers
     "sumneko_lua",
-    -- "rust_analyzer",
-    -- "rust_analyzer@nightly",
+    "rust_analyzer",
     "gopls",
     "jsonls",
     "terraformls",
@@ -43,7 +38,6 @@ START_SERVERS = {
     -- Lsp servers
     "sumneko_lua",
     "rust_analyzer",
-    -- "rust_analyzer@nightly",
     "gopls",
     "jsonls",
     "terraformls",
@@ -91,7 +85,7 @@ for _, server in pairs(START_SERVERS) do
     if server == "yamlls" then
         local yamlls_opts = require "conf.lsp.settings.yamlls"
         opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
-        opts.capabilities.document_formatting = true
+        -- opts.capabilities.document_formatting = true
     end
 
     if server == "sumneko_lua" then
@@ -120,15 +114,14 @@ for _, server in pairs(START_SERVERS) do
     end
 
     if server == "rust_analyzer" then
-        local rust_opts, rust_tools
-        status_ok, rust_opts = pcall(require, "conf.lsp.settings.rust_tools")
-        if not status_ok then
+        local rust_opts_ok, rust_opts = pcall(require, "conf.lsp.settings.rust_tools")
+        if not rust_opts_ok then
             print("Error then calling require 'conf/lsp/settings/rust_tools' script")
             return
         end
 
-        status_ok, rust_tools = pcall(require, "rust-tools")
-        if not status_ok then
+        local rust_tools_ok, rust_tools = pcall(require, "rust-tools")
+        if not rust_tools_ok then
             print("Error then calling require 'rust-tools' plugin")
             return
         end

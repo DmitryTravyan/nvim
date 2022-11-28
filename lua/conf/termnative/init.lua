@@ -275,11 +275,10 @@ function M.setup(name)
 	hi.TSTitle = { ctermfg = M.colors.base0D, ctermbg = nil, cterm = "none" }
 	hi.TSLiteral = { ctermfg = M.colors.base09, ctermbg = nil, cterm = "none" }
 	hi.TSURI = { ctermfg = M.colors.base09, ctermbg = nil, cterm = "underline" }
-	-- hi.TSType               = { ctermfg = M.colors.base0A, ctermbg = nil, cterm = 'none' }
+	-- hi.TSType = { ctermfg = M.colors.base0A, ctermbg = nil, cterm = "none" }
 	hi.TSTypeBuiltin = { ctermfg = M.colors.base0A, ctermbg = nil, cterm = "italic" }
 	hi.TSVariable = { ctermfg = M.colors.base08, ctermbg = nil, cterm = "none" }
 	hi.TSVariableBuiltin = { ctermfg = M.colors.base08, ctermbg = nil, cterm = "italic" }
-
 	hi.TSDefinition = { ctermfg = nil, ctermbg = nil, cterm = "underline" }
 	hi.TSDefinitionUsage = { ctermfg = nil, ctermbg = nil, cterm = "underline" }
 	hi.TSCurrentScope = { ctermfg = nil, ctermbg = nil, cterm = "bold" }
