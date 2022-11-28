@@ -91,6 +91,7 @@ for _, server in pairs(START_SERVERS) do
     if server == "yamlls" then
         local yamlls_opts = require "conf.lsp.settings.yamlls"
         opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+        opts.capabilities.document_formatting = true
     end
 
     if server == "sumneko_lua" then
