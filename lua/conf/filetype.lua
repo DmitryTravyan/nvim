@@ -1,12 +1,7 @@
 require("filetype").setup({
 	overrides = {
-	--	extensions = {
-	--		-- Set the filetype of *.pn files to potion
-	--		tpl = "tpl",
-	--	},
-		-- The same as the ones above except the keys map to functions
 		function_extensions = {
-			["tpl"] = function()
+			["yml"] = function()
 				if vim.fn.search("{{.+}}") then
 					vim.bo.filetype = "gotmpl"
 				end
@@ -16,10 +11,15 @@ require("filetype").setup({
 					vim.bo.filetype = "gotmpl"
 				end
 			end,
+			["tpl"] = function()
+				if vim.fn.search("{{.+}}") then
+					vim.bo.filetype = "gotmpl"
+				end
+			end,
 		},
 		function_literal = {
 			Brewfile = function()
-                vim.lsp.diagnostic.disable()
+				vim.lsp.diagnostic.disable()
 			end,
 		},
 	},
