@@ -148,13 +148,6 @@ for _, server in pairs(START_SERVERS) do
 		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
 	end
 
-	if server == "terraformls" then
-		-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-		-- 	pattern = { "*.tf", "*.tfvars" },
-		-- 	callback = vim.lsp.buf.format(),
-		-- })
-	end
-
 	lspconfig[server].setup(opts)
 	::continue::
 end

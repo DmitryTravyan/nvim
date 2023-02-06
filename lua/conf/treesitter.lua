@@ -29,6 +29,7 @@ configs.setup({
 		"toml",
 		"json",
 		"hcl",
+        "terraform",
 		"go",
 		"gomod",
         "gotmpl",

@@ -75,8 +75,9 @@ vim.cmd("autocmd FileType go nnoremap <S-A-l> :GoFmt<CR>")
 vim.cmd("autocmd FileType rust nnoremap <S-A-l> :RustFmt<CR>")
 vim.cmd("autocmd FileType lua nnoremap <S-A-l> :FormatWrite<CR>")
 vim.cmd("autocmd FileType yaml nnoremap <S-A-l> :FormatWrite<CR>")
-
-
+vim.cmd("autocmd FileType terraform nnoremap <S-A-l> :FormatWrite<CR>")
+vim.cmd("autocmd FileType terraform-vars nnoremap <S-A-l> :FormatWrite<CR>")
+vim.cmd("autocmd FileType hcl nnoremap <S-A-l> :FormatWrite<CR>")
 
 -- Set formatting shortcut keymap
 -- keymap("n", "<S-A-l>", ":RustFmt<CR>", { noremap = true, silent = true })

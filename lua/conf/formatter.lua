@@ -30,5 +30,10 @@ require("formatter").setup({
 		yaml = {
 			require("formatter.filetypes.yaml").prettier,
 		},
+		terraform = {
+			function()
+				vim.lsp.buf.format()
+			end,
+		},
 	},
 })

@@ -7,15 +7,13 @@ end
 
 require("filetype").setup({
 	overrides = {
-		function_complex = {
-			[".*\\/templates\\/.*[.yml|.yaml]"] = function()
-				if find_gompl_pattern() then
-                    print('gotmpl')
-					vim.bo.filetype = "gotmpl"
-				else
-					vim.bo.filetype = "yaml"
-				end
-			end,
+		extensions = {
+			["tf"] = "terraform",
+			["tfvars"] = "terraform-vars",
+			["tfstate"] = "json",
+			["ftstate.backup"] = "json",
+			["terraformrc"] = "hcl",
+			["terraform.rc"] = "hcl",
 		},
 		function_extensions = {
 			["tpl"] = function()
@@ -34,6 +32,15 @@ require("filetype").setup({
 		function_literal = {
 			Brewfile = function()
 				vim.lsp.diagnostic.disable()
+			end,
+		},
+		function_complex = {
+			[".*\\/templates\\/.*[.yml|.yaml]"] = function()
+				if find_gompl_pattern() then
+					vim.bo.filetype = "gotmpl"
+				else
+					vim.bo.filetype = "yaml"
+				end
 			end,
 		},
 	},
