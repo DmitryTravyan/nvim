@@ -74,7 +74,7 @@ keymap("n", "<A-S-f>", ":Telescope<CR>", terminal_options)
 vim.cmd("autocmd FileType go nnoremap <S-A-l> :GoFmt<CR>")
 vim.cmd("autocmd FileType rust nnoremap <S-A-l> :RustFmt<CR>")
 vim.cmd("autocmd FileType lua nnoremap <S-A-l> :FormatWrite<CR>")
-
+vim.cmd("autocmd FileType yaml nnoremap <S-A-l> :FormatWrite<CR>")
 
 
 
