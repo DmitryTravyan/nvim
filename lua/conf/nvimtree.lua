@@ -3,12 +3,6 @@ local tree_callback = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
-	open_on_setup = true,
-	ignore_ft_on_setup = {
-		"startify",
-		"dashboard",
-		"alpha",
-	},
 	renderer = {
 		icons = {
 			webdev_colors = true,

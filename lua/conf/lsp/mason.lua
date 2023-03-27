@@ -20,7 +20,7 @@ end
 
 AUTO_INSTALL_SERVERS = {
 	-- Lsp servers
-	"sumneko_lua",
+	"lua_ls",
 	"rust_analyzer",
 	"gopls",
 	"jsonls",
@@ -35,7 +35,7 @@ AUTO_INSTALL_SERVERS = {
 
 START_SERVERS = {
 	-- Lsp servers
-	"sumneko_lua",
+	"lua_ls",
 	"rust_analyzer",
 	"gopls",
 	"jsonls",
@@ -87,20 +87,21 @@ for _, server in pairs(START_SERVERS) do
 		-- opts.capabilities.document_formatting = true
 	end
 
-	if server == "sumneko_lua" then
+	if server == "lua_ls" then
 		local n_status_ok, neodev = pcall(require, "neodev")
 		if not n_status_ok then
 			print("error then calling require plugin folke/neodev.nvim")
 			return
 		end
-		local sumneko_status_ok, sumneko_opts = pcall(require, "conf.lsp.settings.sumneko_lua")
-		if not sumneko_status_ok then
-			print("error then calling require options for plugin sumneko_lua")
+		neodev.setup()
+		local lua_status_ok, lua_opts = pcall(require, "conf.lsp.settings.lua_ls")
+		if not lua_status_ok then
+			print("error then calling require options for plugin lua_ls")
 			return
 		end
-		opts = vim.tbl_deep_extend("force", opts, sumneko_opts)
+		opts = vim.tbl_deep_extend("force", opts, lua_opts)
 
-		lspconfig.sumneko_lua.setup(opts)
+		lspconfig.lua_ls.setup(opts)
 		goto continue
 	end
 
