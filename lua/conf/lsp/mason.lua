@@ -45,6 +45,7 @@ START_SERVERS = {
 	"golangci_lint_ls",
 	"solargraph",
 	"sorbet",
+	"clangd",
 }
 
 mason.setup({
@@ -147,6 +148,11 @@ for _, server in pairs(START_SERVERS) do
 	if server == "gopls" then
 		local gopls_opts = require("conf.lsp.settings.gopls")
 		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+	end
+
+	if server == "clangd" then
+		local clangd_opts = require("conf.lsp.settings.clangd")
+		opts = vim.tbl_deep_extend("force", clangd_opts, opts)
 	end
 
 	lspconfig[server].setup(opts)

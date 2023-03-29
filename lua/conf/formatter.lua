@@ -35,5 +35,10 @@ require("formatter").setup({
 				vim.lsp.buf.format()
 			end,
 		},
+		c = {
+			function()
+				vim.lsp.buf.format()
+			end,
+		},
 	},
 })
