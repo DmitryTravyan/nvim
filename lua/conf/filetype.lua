@@ -14,6 +14,7 @@ require("filetype").setup({
 			["ftstate.backup"] = "json",
 			["terraformrc"] = "hcl",
 			["terraform.rc"] = "hcl",
+			["tarantool"] = "lua",
 		},
 		function_extensions = {
 			["tpl"] = function()

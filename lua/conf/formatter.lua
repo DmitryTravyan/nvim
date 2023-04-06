@@ -31,14 +31,20 @@ require("formatter").setup({
 			require("formatter.filetypes.yaml").prettier,
 		},
 		terraform = {
-			function()
-				vim.lsp.buf.format()
-			end,
+			DEFAULT_FORMATTER,
+		},
+		toml = {
+			DEFAULT_FORMATTER,
+		},
+		json = {
+			DEFAULT_FORMATTER,
 		},
 		c = {
-			function()
-				vim.lsp.buf.format()
-			end,
+			DEFAULT_FORMATTER,
 		},
 	},
 })
+
+function DEFAULT_FORMATTER()
+	vim.lsp.buf.format()
+end
