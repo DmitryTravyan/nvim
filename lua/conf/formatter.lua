@@ -42,6 +42,22 @@ require("formatter").setup({
 		c = {
 			DEFAULT_FORMATTER,
 		},
+		python = {
+			require("formatter.filetypes.python").black,
+			function()
+				-- Full specification of configurations is down below and in Vim help
+				-- files
+				print(require("formatter.filetypes.python").black)
+				return {
+					exe = "black",
+					args = {
+                        "--fast",
+						util.escape_path(util.get_current_buffer_file_path()),
+					},
+					stdin = true,
+				}
+			end,
+		},
 	},
 })
 

@@ -31,6 +31,7 @@ AUTO_INSTALL_SERVERS = {
 	"solargraph",
 	"sorbet",
 	"clangd",
+    "pylyzer",
 }
 
 START_SERVERS = {
@@ -46,6 +47,7 @@ START_SERVERS = {
 	"solargraph",
 	"sorbet",
 	"clangd",
+    "pylyzer"
 }
 
 mason.setup({
@@ -153,6 +155,11 @@ for _, server in pairs(START_SERVERS) do
 	if server == "clangd" then
 		local clangd_opts = require("conf.lsp.settings.clangd")
 		opts = vim.tbl_deep_extend("force", clangd_opts, opts)
+	end
+
+	if server == "pylyzer" then
+		local pylyzer_opts = require("conf.lsp.settings.pylyzer")
+		opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
 	end
 
 	lspconfig[server].setup(opts)
