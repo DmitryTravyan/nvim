@@ -59,13 +59,6 @@ require("nvim-tree").setup({
 		side = "left",
 		number = false,
 		relativenumber = false,
-		mappings = {
-			custom_only = false,
-			list = {
-				{ key = { "l", "<CR>", "o" }, cb = tree_callback("edit") },
-				{ key = "h", cb = tree_callback("close_node") },
-			},
-		},
 	},
 	trash = {
 		cmd = "trash",

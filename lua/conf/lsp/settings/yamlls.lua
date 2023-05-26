@@ -1,10 +1,7 @@
 return {
-    yaml = {
-        schemaStore = {
-            enable = true
-        },
-        format = {
-            enable = true
-        },
-    }
+	redhat = {
+		telemetry = {
+			enabled = false,
+		},
+	},
 }

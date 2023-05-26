@@ -21,17 +21,14 @@ end
 AUTO_INSTALL_SERVERS = {
 	-- Lsp servers
 	"lua_ls",
-	"rust_analyzer",
 	"gopls",
 	"jsonls",
 	"terraformls",
 	"tsserver",
 	"yamlls",
 	"golangci_lint_ls",
-	"solargraph",
-	"sorbet",
 	"clangd",
-    "pylyzer",
+	"pylyzer",
 }
 
 START_SERVERS = {
@@ -44,10 +41,8 @@ START_SERVERS = {
 	"tsserver",
 	"yamlls",
 	"golangci_lint_ls",
-	"solargraph",
-	"sorbet",
 	"clangd",
-    "pylyzer"
+	"pylyzer",
 }
 
 mason.setup({
@@ -87,7 +82,6 @@ for _, server in pairs(START_SERVERS) do
 	if server == "yamlls" then
 		local yamlls_opts = require("conf.lsp.settings.yamlls")
 		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
-		-- opts.capabilities.document_formatting = true
 	end
 
 	if server == "lua_ls" then
@@ -126,23 +120,6 @@ for _, server in pairs(START_SERVERS) do
 			return
 		end
 
-		--     {
-		--     "server" = {
-		--     on_attach = function(_, bufnr)
-		--     -- Hover actions
-		--     vim.keymap.set(
-		--         "n",
-		--         "K",
-		--         rust_tools.hover_actions.hover_actions, { buffer = bufnr }
-		--     )
-		--     -- Code action groups
-		--     vim.keymap.set(
-		--         "n",
-		--         "ga",
-		--         rust_tools.code_action_group.code_action_group, { buffer = bufnr }
-		--     )
-		-- end
-		-- })
 		rust_tools.setup(rust_opts)
 		goto continue
 	end

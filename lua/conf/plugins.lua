@@ -55,8 +55,11 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp") -- lsp completion
 
 	-- snippets
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
+	use({
+		"L3MON4D3/LuaSnip",
+		-- install jsregexp (optional!:).
+		run = "make install_jsregexp",
+	})
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- LSP
@@ -118,6 +121,9 @@ return packer.startup(function(use)
 
 	-- Git
 	use("f-person/git-blame.nvim")
+
+	-- Colorscheme
+	use("RRethy/nvim-base16")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
