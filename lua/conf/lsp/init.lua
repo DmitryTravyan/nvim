@@ -9,7 +9,6 @@ end
 
 require("conf.lsp.mason")
 require("conf.lsp.null_ls")
-require("conf.lsp.handlers").setup()
 
 status_ok, lsp_lines = pcall(require, "lsp_lines")
 if not status_ok then

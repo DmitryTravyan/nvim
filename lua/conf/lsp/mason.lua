@@ -63,25 +63,19 @@ mason_lspconfig.setup({
 	automatic_installation = false,
 })
 
-local opts = {}
+local opts = require("conf.lsp.settings.default")
 
 for _, server in pairs(START_SERVERS) do
-	-- Options for lsp servers
-	opts = {
-		on_attach = require("conf.lsp.handlers").on_attach,
-		capabilities = require("conf.lsp.handlers").capabilities,
-	}
-
 	server = vim.split(server, "@", { plain = true })[1]
 
 	if server == "jsonls" then
 		local jsonls_opts = require("conf.lsp.settings.jsonls")
-		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, jsonls_opts)
 	end
 
 	if server == "yamlls" then
 		local yamlls_opts = require("conf.lsp.settings.yamlls")
-		opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, yamlls_opts)
 	end
 
 	if server == "lua_ls" then
@@ -96,6 +90,7 @@ for _, server in pairs(START_SERVERS) do
 			print("error then calling require options for plugin lua_ls")
 			return
 		end
+
 		opts = vim.tbl_deep_extend("force", opts, lua_opts)
 
 		lspconfig.lua_ls.setup(opts)
@@ -104,7 +99,7 @@ for _, server in pairs(START_SERVERS) do
 
 	if server == "tsserver" then
 		local tsserver_opts = require("conf.lsp.settings.tsserver")
-		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, tsserver_opts)
 	end
 
 	if server == "rust_analyzer" then
@@ -113,6 +108,9 @@ for _, server in pairs(START_SERVERS) do
 			print("Error then calling require 'conf/lsp/settings/rust_tools' script")
 			return
 		end
+
+		rust_opts.server = vim.tbl_deep_extend("force", rust_opts.server, opts)
+		opts = vim.tbl_deep_extend("force", opts, rust_opts)
 
 		local rust_tools_ok, rust_tools = pcall(require, "rust-tools")
 		if not rust_tools_ok then
@@ -126,19 +124,60 @@ for _, server in pairs(START_SERVERS) do
 
 	if server == "gopls" then
 		local gopls_opts = require("conf.lsp.settings.gopls")
-		opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, gopls_opts)
 	end
 
 	if server == "clangd" then
 		local clangd_opts = require("conf.lsp.settings.clangd")
-		opts = vim.tbl_deep_extend("force", clangd_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, clangd_opts)
 	end
 
 	if server == "pylyzer" then
 		local pylyzer_opts = require("conf.lsp.settings.pylyzer")
-		opts = vim.tbl_deep_extend("force", pylyzer_opts, opts)
+		opts = vim.tbl_deep_extend("force", opts, pylyzer_opts)
 	end
 
 	lspconfig[server].setup(opts)
 	::continue::
 end
+
+local signs = {
+	{ name = "DiagnosticSignError", text = "" },
+	{ name = "DiagnosticSignWarn", text = "" },
+	{ name = "DiagnosticSignHint", text = "" },
+	{ name = "DiagnosticSignInfo", text = "" },
+}
+
+for _, sign in ipairs(signs) do
+	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = { active = signs },
+	update_in_insert = true,
+	underline = false,
+	severity_sort = true,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+	},
+	virtual_lines = false,
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = true,
+	signs = { active = signs },
+	update_in_insert = true,
+	virtual_lines = false,
+})
