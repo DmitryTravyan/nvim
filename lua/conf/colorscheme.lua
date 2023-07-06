@@ -1,4 +1,5 @@
-if vim.fn.has('macunix') == 1 then
+if os.getenv("TERM_PROGRAM") == 'Apple_Terminal' then
+    -- Possible variants
 	-- "gruvbox-dark-hard"
 	-- "onedark"
 	require("conf.termnative").setup("gruvbox-dark-hard")
