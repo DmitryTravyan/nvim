@@ -15,6 +15,8 @@ require("filetype").setup({
 			["terraformrc"] = "hcl",
 			["terraform.rc"] = "hcl",
 			["tarantool"] = "lua",
+            ["c"] = "c",
+            ["h"] = "c",
 		},
 		function_extensions = {
 			["tpl"] = function()

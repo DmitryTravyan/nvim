@@ -82,6 +82,7 @@ return packer.startup(function(use)
 
 	-- Clang
 	use('deoplete-plugins/deoplete-clang')
+    use('cdelledonne/vim-cmake')
 
 	-- File navigation
 	use('nvim-tree/nvim-web-devicons')
