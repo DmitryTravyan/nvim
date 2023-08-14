@@ -82,7 +82,7 @@ return packer.startup(function(use)
 
 	-- Clang
 	use('deoplete-plugins/deoplete-clang')
-    use('cdelledonne/vim-cmake')
+	use('cdelledonne/vim-cmake')
 
 	-- File navigation
 	use('nvim-tree/nvim-web-devicons')
@@ -95,7 +95,13 @@ return packer.startup(function(use)
 	})
 	use('JoosepAlviste/nvim-ts-context-commentstring')
 	use('nvim-lua/plenary.nvim') -- Useful lua functions used ny lots of plugins
-	use('nvim-telescope/telescope.nvim')
+	use({
+		'nvim-telescope/telescope.nvim',
+		requires = {
+			{ 'nvim-telescope/telescope-live-grep-args.nvim' },
+		},
+		config = function() require('telescope').load_extension('live_grep_args') end,
+	})
 
 	-- Null ls plugin
 	use('jose-elias-alvarez/null-ls.nvim')
