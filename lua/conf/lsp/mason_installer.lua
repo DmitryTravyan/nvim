@@ -1,7 +1,6 @@
 local tools = {
     -- Lua tools
     "luacheck",
-    "stylua",
     "luaformatter",
     -- Go tools
     "gofumpt",
