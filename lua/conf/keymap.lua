@@ -77,6 +77,8 @@ keymap(
 	terminal_options
 )
 
+keymap('n', '<A-S-y>', ':Telescope yaml_schema<CR>', terminal_options)
+
 -- Set formatting shortcut keymap
 -- keymap("n", "<S-A-l>", ":RustFmt<CR>", { noremap = true, silent = true })
 

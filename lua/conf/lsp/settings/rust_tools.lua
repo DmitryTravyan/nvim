@@ -5,37 +5,37 @@ return {
 			only_current_line = false,
 
 			show_parameter_hints = true,
-			parameter_hints_prefix = "<- ",
-			other_hints_prefix = "=> ",
+			parameter_hints_prefix = '<- ',
+			other_hints_prefix = '=> ',
 
 			max_len_align = false,
 			right_align = false,
 
-			highlight = "Comment",
+			highlight = 'Comment',
 			cache = true,
 		},
 		hover_actions = {
 			auto_focus = false,
-			border = "rounded",
+			border = 'rounded',
 			width = 60,
 			height = 30,
 		},
 	},
 	server = {
 		cmd = {
-			"rustup",
-			"run",
-			"stable",
-			"rust-analyzer",
+			'rustup',
+			'run',
+			'stable',
+			'rust-analyzer',
 		},
 		settings = {
-			["rust-analyzer"] = {
+			['rust-analyzer'] = {
 				lens = {
 					enable = true,
 				},
 				-- enable clippy diagnostics on save
 				checkOnSave = {
-					command = "clippy",
+					command = 'clippy',
 				},
 				procMacro = {
 					enable = true,
@@ -47,6 +47,9 @@ return {
 				},
 				diagnostics = {
 					experimental = true,
+				},
+				cargo = {
+					features = 'all',
 				},
 			},
 		},

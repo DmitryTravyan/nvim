@@ -21,28 +21,28 @@ end
 AUTO_INSTALL_SERVERS = {
 	-- Lsp servers
 	"lua_ls",
-	"gopls",
+	--"gopls",
 	"jsonls",
-	"terraformls",
+	--"terraformls",
 	"tsserver",
 	"yamlls",
-	"golangci_lint_ls",
+	--"golangci_lint_ls",
 	"clangd",
-	"pylyzer",
+	--"pylyzer",
 }
 
 START_SERVERS = {
 	-- Lsp servers
 	"lua_ls",
 	"rust_analyzer",
-	"gopls",
+	--"gopls",
 	"jsonls",
-	"terraformls",
+	--"terraformls",
 	"tsserver",
 	"yamlls",
-	"golangci_lint_ls",
+	--"golangci_lint_ls",
 	"clangd",
-	"pylyzer",
+	--"pylyzer",
 }
 
 mason.setup({

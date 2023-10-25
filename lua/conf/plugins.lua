@@ -84,6 +84,9 @@ return packer.startup(function(use)
 	use('deoplete-plugins/deoplete-clang')
 	use('cdelledonne/vim-cmake')
 
+    -- Yaml
+    use('someone-stole-my-name/yaml-companion.nvim')
+
 	-- File navigation
 	use('nvim-tree/nvim-web-devicons')
 	use('nvim-tree/nvim-tree.lua')
@@ -128,6 +131,9 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	use('RRethy/nvim-base16')
+
+    -- Comments
+    use('numToStr/Comment.nvim')
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
